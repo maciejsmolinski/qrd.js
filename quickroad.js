@@ -39,7 +39,7 @@ function Relation (source, target) {
 }
 
 /**
- * ::Matrix (<Array:Point>)
+ * ::Matrix (<Array:points>)
  *
  * Returns Matrix instance, might be loaded with predefined points.
  * Matrix contains of points and relations if needed.
@@ -66,7 +66,7 @@ function Matrix (points) {
  *     .addPoint(new Point(...))
  *     // => Matrix
  *
- * @param  {Array}   point   An array of Point objects to be added to the matrix
+ * @param  {Point}   point   An array of Point objects to be added to the matrix
  * @return {Matrix}          Returns matrix object
  */
 Matrix.prototype.addPoint = function (point) {
@@ -77,7 +77,7 @@ Matrix.prototype.addPoint = function (point) {
 
 
 /**
- * ::Matrix::addPoints (<Array:Points|Point>)
+ * ::Matrix::addPoints (<Array:points|Point>)
  *
  * Triggers Matrix::addPoint with each element of points array.
  * Works with one Point object as well.
@@ -86,8 +86,8 @@ Matrix.prototype.addPoint = function (point) {
  *   matrix.addPoints( point )
  *   matrix.addPoints( [ point, point, point ] )
  *
- * @param {Array|Point}  points  Points to be added to the matrix
- * @return {Matrix}              Returns matrix object
+ * @param  {Array|Point}  points  Points to be added to the matrix
+ * @return {Matrix}               Returns matrix object
  */
 Matrix.prototype.addPoints = function (points) {
   if (!Array.isArray(points)) { points = [ points ]; }
@@ -107,8 +107,8 @@ Matrix.prototype.addPoints = function (points) {
  *     .addRelation(new Relation(...))
  *     // => Matrix
  *
- * @param  {Array}   relation  An array of Relation objects to be added to the matrix
- * @return {Matrix}            Returns matrix object
+ * @param  {Relation}  relation  An array of Relation objects to be added to the matrix
+ * @return {Matrix}              Returns matrix object
  */
 Matrix.prototype.addRelation = function (relation) {
   if (! relation instanceof Relation) { throw new Error('Matrix::addRelation Tried to add object of wrong type. Relation instance should be used instead.'); }
@@ -117,7 +117,7 @@ Matrix.prototype.addRelation = function (relation) {
 };
 
 /**
- * Matrix::addRelations (<Array:rRelations|Relation>)
+ * Matrix::addRelations (<Array:relations|Relation>)
  *
  * Triggers Matrix::addRelation with each element of relations array.
  * Works with one Relation object as well.
@@ -126,8 +126,8 @@ Matrix.prototype.addRelation = function (relation) {
  *   matrix.addRelations( relation )
  *   matrix.addRelations( [ relation, relation, relation ] )
  *
- * @param {Array|Relation}  relations  Relations to be added to the matrix
- * @return {Matrix}              Returns matrix object
+ * @param  {Array|Relation}  relations  Relations to be added to the matrix
+ * @return {Matrix}                     Returns matrix object
  */
 Matrix.prototype.addRelations = function (relations) {
   if (!Array.isArray(relations)) { relations = [ relations ]; }
