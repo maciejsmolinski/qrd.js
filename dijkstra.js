@@ -1,23 +1,6 @@
-var points = [
-  new Point(0,0),
-  new Point(2,2),
-  new Point(3,1),
-  new Point(5,-1),
-  new Point(1,-1),
-  new Point(4,-3)
-];
-
-var relations = [
-  new Relation(points[0], points[1]),
-  new Relation(points[0], points[2]),
-  new Relation(points[2], points[3]),
-  new Relation(points[2], points[4]),
-  new Relation(points[3], points[5]),
-  new Relation(points[4], points[5])
-];
 
 function Point (x, y) {
-  if (! [x, y].every(function (input) { return typeof input === 'number' })) {
+  if (! [x, y].every(function (input) { return typeof input === 'number'; })) {
     throw new Error('Point(x, y) X and Y must be of Number type');
   }
   this.x = x;
@@ -82,12 +65,48 @@ Matrix.prototype.addRelations = function (relations) {
   relations.forEach(this.addRelation.bind(this));
 };
 
+function MatrixCalculator (matrix) {
+  if (! matrix instanceof Matrix) { throw new Error('MatrixCalculator::constructor Calculator must be provided with Matrix instance'); }
+  this.matrix = matrix;
+}
+
+MatrixCalculator.prototype.findShortestPath = function (startingPoint, endingPoint) {
+  if (! [startingPoint, endingPoint].every(function (input) { return input instanceof Point; })) {
+    throw new Error('Relation(source, target) Source and Target must be of Point type');
+  }
+  console.log('path found');
+};
+
 //////////////////////////////////////////////////////////////////
 
+var points = [
+  new Point(0,0),
+  new Point(2,2),
+  new Point(3,1),
+  new Point(5,-1),
+  new Point(1,-1),
+  new Point(4,-3)
+];
+
+var relations = [
+  new Relation(points[0], points[1]),
+  new Relation(points[0], points[2]),
+  new Relation(points[2], points[3]),
+  new Relation(points[2], points[4]),
+  new Relation(points[3], points[5]),
+  new Relation(points[4], points[5])
+];
+
+
 var matrix = new Matrix();
+var matrixCalculator = new MatrixCalculator(matrix);
 
 matrix.addPoints(points);
 matrix.addRelations(relations);
 
-console.log(matrix);
+console.log('::Matrix', matrix);
+console.log('::MatrixCalculator', matrixCalculator);
+
+matrixCalculator.findShortestPath(matrixCalculator.matrix.points[0], matrixCalculator.matrix.points[1]);
+
 
