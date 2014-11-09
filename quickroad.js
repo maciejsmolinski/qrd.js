@@ -117,7 +117,7 @@ Matrix.prototype.addRelation = function (relation) {
 };
 
 /**
- * Matrix::addRelations (<Array:relations|Relation>)
+ * ::Matrix::addRelations (<Array:relations|Relation>)
  *
  * Triggers Matrix::addRelation with each element of relations array.
  * Works with one Relation object as well.
