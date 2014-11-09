@@ -31,7 +31,7 @@ function Point (x, y) {
  * @param {Point}  target  Destination Point
  */
 function Relation (source, target) {
-  if (! [source, target].every(function (input) { return input instanceof Point; })) {
+  if (! [source, target].every(function (input) { return Point.prototype.isPrototypeOf(input); })) {
     throw new Error('Relation(source, target) Source and Target must be of Point type');
   }
   this.source = source;
@@ -70,7 +70,7 @@ function Matrix (points) {
  * @return {Matrix}          Returns matrix object
  */
 Matrix.prototype.addPoint = function (point) {
-  if (! point instanceof Point) { throw new Error('Matrix::addPoint Tried to add object of wrong type. Point instance should be used instead.'); }
+  if (! Point.prototype.isPrototypeOf(point)) { throw new Error('Matrix::addPoint Tried to add object of wrong type. Point instance should be used instead.'); }
   this.points.push(point);
   return this;
 };
@@ -111,7 +111,7 @@ Matrix.prototype.addPoints = function (points) {
  * @return {Matrix}              Returns matrix object
  */
 Matrix.prototype.addRelation = function (relation) {
-  if (! relation instanceof Relation) { throw new Error('Matrix::addRelation Tried to add object of wrong type. Relation instance should be used instead.'); }
+  if (! Relation.prototype.isPrototypeOf(relation)) { throw new Error('Matrix::addRelation Tried to add object of wrong type. Relation instance should be used instead.'); }
   this.relations.push(relation);
   return this;
 };
@@ -130,7 +130,7 @@ Matrix.prototype.addRelation = function (relation) {
  * @return {Matrix}                     Returns matrix object
  */
 Matrix.prototype.addRelations = function (relations) {
-  if (!Array.isArray(relations)) { relations = [ relations ]; }
+  if (! Array.isArray(relations)) { relations = [ relations ]; }
   relations.forEach(this.addRelation.bind(this));
   return this;
 };
@@ -138,12 +138,12 @@ Matrix.prototype.addRelations = function (relations) {
 //////////////////////////////////////////////////////////////////
 
 function MatrixCalculator (matrix) {
-  if (! matrix instanceof Matrix) { throw new Error('MatrixCalculator::constructor Calculator must be provided with Matrix instance'); }
+  if (! Matrix.prototype.isPrototypeOf(matrix)) { throw new Error('MatrixCalculator::constructor Calculator must be provided with Matrix instance'); }
   this.matrix = matrix;
 }
 
 MatrixCalculator.prototype.findShortestPath = function (startingPoint, endingPoint) {
-  if (! [startingPoint, endingPoint].every(function (input) { return input instanceof Point; })) {
+  if (! [startingPoint, endingPoint].every(function (input) { return Point.prototype.isPrototypeOf(input); })) {
     throw new Error('Relation(source, target) Source and Target must be of Point type');
   }
   console.log('path found');
