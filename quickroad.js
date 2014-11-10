@@ -15,6 +15,7 @@ function Point (x, y) {
   if (! [x, y].every(function (input) { return typeof input === 'number'; })) {
     throw new Error('Point(x, y) X and Y must be of Number type');
   }
+
   this.x = x;
   this.y = y;
 }
@@ -34,6 +35,7 @@ function Relation (source, target) {
   if (! [source, target].every(function (input) { return Point.prototype.isPrototypeOf(input); })) {
     throw new Error('Relation(source, target) Source and Target must be of Point type');
   }
+
   this.source = source;
   this.target = target;
 }
@@ -88,6 +90,7 @@ function Matrix (points) {
  */
 Matrix.prototype.addPoint = function (point) {
   if (! Point.prototype.isPrototypeOf(point)) { throw new Error('Matrix::addPoint Tried to add object of wrong type. Point instance should be used instead.'); }
+
   this.points.push(point);
   return this;
 };
@@ -108,6 +111,7 @@ Matrix.prototype.addPoint = function (point) {
  */
 Matrix.prototype.addPoints = function (points) {
   if (!Array.isArray(points)) { points = [ points ]; }
+
   points.forEach(this.addPoint.bind(this));
   return this;
 };
@@ -129,6 +133,7 @@ Matrix.prototype.addPoints = function (points) {
  */
 Matrix.prototype.addRelation = function (relation) {
   if (! Relation.prototype.isPrototypeOf(relation)) { throw new Error('Matrix::addRelation Tried to add object of wrong type. Relation instance should be used instead.'); }
+
   this.relations.push(relation);
   return this;
 };
@@ -163,6 +168,7 @@ MatrixCalculator.prototype.findShortestPath = function (startingPoint, endingPoi
   if (! [startingPoint, endingPoint].every(function (input) { return Point.prototype.isPrototypeOf(input); })) {
     throw new Error('Relation(source, target) Source and Target must be of Point type');
   }
+
   // @todo find shortest path
 };
 
@@ -185,7 +191,6 @@ var relations = [
   new Relation(points[3], points[5]),
   new Relation(points[4], points[5])
 ];
-
 
 var matrix = new Matrix();
 var matrixCalculator = new MatrixCalculator(matrix);
