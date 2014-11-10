@@ -177,22 +177,6 @@ RelationService.prototype.call = function () {
 
 //////////////////////////////////////////////////////////////////
 
-function MatrixCalculator (matrix) {
-  if (! Matrix.prototype.isPrototypeOf(matrix)) { throw new Error('MatrixCalculator::constructor Calculator must be provided with Matrix instance'); }
-
-  this.matrix = matrix;
-}
-
-MatrixCalculator.prototype.findShortestPath = function (startingPoint, endingPoint) {
-  if (! [startingPoint, endingPoint].every(function (input) { return Point.prototype.isPrototypeOf(input); })) {
-    throw new Error('Relation(source, target) Source and Target must be of Point type');
-  }
-
-  // @todo find shortest path
-};
-
-//////////////////////////////////////////////////////////////////
-
 var points = [
   new Point(0,0),
   new Point(2,2),
@@ -212,15 +196,53 @@ var relations = [
 ];
 
 var matrix = new Matrix();
-var matrixCalculator = new MatrixCalculator(matrix);
 
 matrix.addPoints(points);
 matrix.addRelations(relations);
 
-console.log('::Matrix', matrix);
-console.log('::MatrixCalculator', matrixCalculator);
-console.log('::RelationService', new RelationService(matrix.points[3], matrix.relations).call());
+// console.log('::Matrix', matrix);
 
-matrixCalculator.findShortestPath(matrixCalculator.matrix.points[0], matrixCalculator.matrix.points[1]);
+//////////////////////////////////////////////////////////////////
+
+function PathFinder (matrix) {
+  this.visited         = [];
+  this.matrix          = matrix;
+  this.relationService = function (point, relations) {};
+}
+
+PathFinder.prototype.setRelationService = function (relationService) {
+  this.relationService = relationService;
+}
+
+PathFinder.prototype.lookupPath = function (point) {
+  this.visited.push(point);
+  var relations = new this.relationService(point, this.matrix.relations).call()
+  var pointsToVisit = this.lookupPoints(relations);
+
+  // console.log('>> visiting', point);
+  // console.log('>> relations', relations);
+  // console.log('>> toVisit',  pointsToVisit);
+  // console.log('>> visited',  this.visited);
+
+  return pointsToVisit;
+}
+
+PathFinder.prototype.lookupPoints = function (relations) {
+  var pointsToVisit = [];
+
+  relations.forEach(function (relation) {
+    if (this.visited.indexOf(relation.source) < 0) { pointsToVisit.push(relation.source); }
+    if (this.visited.indexOf(relation.target) < 0) { pointsToVisit.push(relation.target); }
+  }.bind(this));
+
+  return pointsToVisit;
+}
+
+// var pf = new PathFinder(matrix);
+// pf.setRelationService(RelationService);
+// var toVisit = pf.lookupPath(pf.matrix.points[0]);
+// toVisit.forEach(pf.lookupPath.bind(pf))
+
+//////////////////////////////////////////////////////////////////
 
 
