@@ -39,7 +39,7 @@ function Relation (source, target) {
 }
 
 /**
- * :Relation::cost
+ * ::Relation::cost
  *
  * Calculates cost of relation (distance between two points).
  *
