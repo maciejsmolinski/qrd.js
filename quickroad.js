@@ -153,14 +153,33 @@ Matrix.prototype.addRelation = function (relation) {
  */
 Matrix.prototype.addRelations = function (relations) {
   if (! Array.isArray(relations)) { relations = [ relations ]; }
+
   relations.forEach(this.addRelation.bind(this));
   return this;
 };
 
 //////////////////////////////////////////////////////////////////
 
+
+function RelationService (point, relations) {
+  if (! Point.prototype.isPrototypeOf(point)) { throw new Error('RelationService::constructor Point must be an instance of Point class'); }
+  if (! Array.isArray(relations)) { throw new Error('RelationService::constructor Relations must be an array of relations'); }
+
+  this.point = point;
+  this.relations = relations;
+}
+
+RelationService.prototype.call = function () {
+  return this.relations.filter(function (relation) {
+    return relation.source == this.point || relation.target == this.point;
+  }.bind(this));
+}
+
+//////////////////////////////////////////////////////////////////
+
 function MatrixCalculator (matrix) {
   if (! Matrix.prototype.isPrototypeOf(matrix)) { throw new Error('MatrixCalculator::constructor Calculator must be provided with Matrix instance'); }
+
   this.matrix = matrix;
 }
 
@@ -200,6 +219,7 @@ matrix.addRelations(relations);
 
 console.log('::Matrix', matrix);
 console.log('::MatrixCalculator', matrixCalculator);
+console.log('::RelationService', new RelationService(matrix.points[3], matrix.relations).call());
 
 matrixCalculator.findShortestPath(matrixCalculator.matrix.points[0], matrixCalculator.matrix.points[1]);
 
