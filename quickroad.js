@@ -39,6 +39,23 @@ function Relation (source, target) {
 }
 
 /**
+ * :Relation::cost
+ *
+ * Calculates cost of relation (distance between two points).
+ *
+ * Sample Usage:
+ *   relation1.cost() // => 3
+ *   relation2.cost() // => 2
+ *
+ * @return  {Number}  Cost of the relation (distance between two points)
+ */
+Object.defineProperty(Relation.prototype, 'cost', {
+  get: function () {
+    return Math.sqrt( Math.pow((this.source.x - this.target.x), 2), Math.pow((this.source.y - this.target.y), 2) );
+  }
+})
+
+/**
  * ::Matrix (<Array:points>)
  *
  * Returns Matrix instance, might be loaded with predefined points.
@@ -146,7 +163,7 @@ MatrixCalculator.prototype.findShortestPath = function (startingPoint, endingPoi
   if (! [startingPoint, endingPoint].every(function (input) { return Point.prototype.isPrototypeOf(input); })) {
     throw new Error('Relation(source, target) Source and Target must be of Point type');
   }
-  console.log('path found');
+  // @todo find shortest path
 };
 
 //////////////////////////////////////////////////////////////////
