@@ -91,6 +91,24 @@ function Matrix (points) {
 Matrix.prototype.addPoint = function (point) {
   if (! Point.prototype.isPrototypeOf(point)) { throw new Error('Matrix::addPoint Tried to add object of wrong type. Point instance should be used instead.'); }
 
+  // Define ::matrix property in the Point object on the fly
+  Object.defineProperty(point, 'matrix', {
+    value: this
+  });
+
+  // Define ::relations property in the Point object on the fly
+  Object.defineProperty(point, 'relations', {
+    get: function () {
+      return this.matrix.relations.filter(function (relation) {
+        return (relation.target.active && relation.source == this) || (relation.source.active && relation.target == this);
+      }.bind(this));
+    }
+  });
+
+  // Define ::active and ::cost properties on the fly
+  point.active = true;
+  point.cost   = this.points.length ? Infinity : 0;
+
   this.points.push(point);
   return this;
 };
@@ -158,22 +176,6 @@ Matrix.prototype.addRelations = function (relations) {
   return this;
 };
 
-//////////////////////////////////////////////////////////////////
-
-
-function RelationService (point, relations) {
-  if (! Point.prototype.isPrototypeOf(point)) { throw new Error('RelationService::constructor Point must be an instance of Point class'); }
-  if (! Array.isArray(relations)) { throw new Error('RelationService::constructor Relations must be an array of relations'); }
-
-  this.point = point;
-  this.relations = relations;
-}
-
-RelationService.prototype.call = function () {
-  return this.relations.filter(function (relation) {
-    return relation.source == this.point || relation.target == this.point;
-  }.bind(this));
-}
 
 //////////////////////////////////////////////////////////////////
 
@@ -185,6 +187,7 @@ var points = [
   new Point(1,-1),
   new Point(4,-3)
 ];
+
 
 var relations = [
   new Relation(points[0], points[1]),
