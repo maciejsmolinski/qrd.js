@@ -205,3 +205,29 @@ matrix.addRelations(relations);
 
 console.log('::Matrix', matrix);
 
+//////////////////////////////////////////////////////////////////
+
+// var toVisit = matrix.points[0].relations;
+// var newToVisit = [];
+
+// while (toVisit.length) {
+//   toVisit.forEach(function (relation) {
+//     var fullCost = relation.source.cost + relation.cost;
+//     if (fullCost < relation.target.cost) {
+//       relation.target.cost = fullCost;
+//       relation.target.from = relation.source;
+//     }
+//     relation.source.active = false
+//     newToVisit = newToVisit.concat(relation.target.relations);
+//   });
+//   toVisit = newToVisit;
+//   newToVisit = [];
+// }
+
+
+// var point = matrix.points.slice(-1)[0];
+// console.log('::Route End Point', '(' + point.x + ',' + point.y + ')');
+// while (point.from) {
+//   point = point.from;
+//   console.log('::Route Via', '(' + point.x + ',' + point.y + ')');
+// }
