@@ -207,6 +207,10 @@ console.log('::Matrix', matrix);
 
 //////////////////////////////////////////////////////////////////
 
+
+// matrix.findShortestPath(matrix.points[0], matrix.points[5]);
+//   // => [ (4,3), (3,2), (...), (0,0) ]
+
 // var toVisit = matrix.points[0].relations;
 // var newToVisit = [];
 
