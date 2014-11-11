@@ -203,49 +203,5 @@ var matrix = new Matrix();
 matrix.addPoints(points);
 matrix.addRelations(relations);
 
-// console.log('::Matrix', matrix);
-
-//////////////////////////////////////////////////////////////////
-
-function PathFinder (matrix) {
-  this.visited         = [];
-  this.matrix          = matrix;
-  this.relationService = function (point, relations) {};
-}
-
-PathFinder.prototype.setRelationService = function (relationService) {
-  this.relationService = relationService;
-}
-
-PathFinder.prototype.lookupPath = function (point) {
-  this.visited.push(point);
-  var relations = new this.relationService(point, this.matrix.relations).call()
-  var pointsToVisit = this.lookupPoints(relations);
-
-  // console.log('>> visiting', point);
-  // console.log('>> relations', relations);
-  // console.log('>> toVisit',  pointsToVisit);
-  // console.log('>> visited',  this.visited);
-
-  return pointsToVisit;
-}
-
-PathFinder.prototype.lookupPoints = function (relations) {
-  var pointsToVisit = [];
-
-  relations.forEach(function (relation) {
-    if (this.visited.indexOf(relation.source) < 0) { pointsToVisit.push(relation.source); }
-    if (this.visited.indexOf(relation.target) < 0) { pointsToVisit.push(relation.target); }
-  }.bind(this));
-
-  return pointsToVisit;
-}
-
-// var pf = new PathFinder(matrix);
-// pf.setRelationService(RelationService);
-// var toVisit = pf.lookupPath(pf.matrix.points[0]);
-// toVisit.forEach(pf.lookupPath.bind(pf))
-
-//////////////////////////////////////////////////////////////////
-
+console.log('::Matrix', matrix);
 
