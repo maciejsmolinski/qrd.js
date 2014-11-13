@@ -1,0 +1,28 @@
+{
+  "name": "quickroad.js",
+  "version": "0.1.0",
+  "description": "Finds the shortest path between points in a matrix",
+  "main": "quickroad.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/msblaze/quickroad.git"
+  },
+  "keywords": [
+    "shortest",
+    "path",
+    "matrix",
+    "relation"
+  ],
+  "author": "Maciej Smolinski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/msblaze/quickroad/issues"
+  },
+  "homepage": "https://github.com/msblaze/quickroad"
+}
