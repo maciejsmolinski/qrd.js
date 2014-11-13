@@ -14,7 +14,11 @@
 ## Installation
 
 ``` html
-<script src="quickroad.js"></script>
+  <script src="quickroad.js"></script>
+```
+
+``` javascript
+  var QRD = require('quickroad');
 ```
 
 ## Usage
