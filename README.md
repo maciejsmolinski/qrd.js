@@ -8,8 +8,9 @@
 
 ## Todos
 
-* Make sure the code is extendable so that points can be put in 3-D space
-* Make sure matrix could use custom-made printers so that users can do whatever they want with computed data (e.g. print the matrix, print the shortest path etc.)
+* Use browserify to provide browser-friendly version of the library
+* Automate workflow with grunt/gulp
+* Provide easy to use API for finding shortest path
 
 ## Installation
 
