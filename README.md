@@ -11,12 +11,17 @@
 * Use browserify to provide browser-friendly version of the library
 * Automate workflow with grunt/gulp
 * Provide easy to use API for finding shortest path
+* Bump versions whenever applicable
 
 ## Installation
+
+HTML:
 
 ``` html
   <script src="quickroad.js"></script>
 ```
+
+NodeJS:
 
 ``` javascript
   var QRD = require('quickroad');
@@ -30,12 +35,12 @@
 
 ``` javascript
   var points = [
-    new Point(0,0),
-    new Point(2,2),
-    new Point(3,1),
-    new Point(5,-1),
-    new Point(1,-1),
-    new Point(4,-3)
+    new QRD.Point(0,0),
+    new QRD.Point(2,2),
+    new QRD.Point(3,1),
+    new QRD.Point(5,-1),
+    new QRD.Point(1,-1),
+    new QRD.Point(4,-3)
   ];
 ```
 
@@ -43,19 +48,19 @@
 
 ``` javascript
   var relations = [
-    new Relation(points[0], points[1]),
-    new Relation(points[0], points[2]),
-    new Relation(points[2], points[3]),
-    new Relation(points[2], points[4]),
-    new Relation(points[3], points[5]),
-    new Relation(points[4], points[5])
+    new QRD.Relation(points[0], points[1]),
+    new QRD.Relation(points[0], points[2]),
+    new QRD.Relation(points[2], points[3]),
+    new QRD.Relation(points[2], points[4]),
+    new QRD.Relation(points[3], points[5]),
+    new QRD.Relation(points[4], points[5])
   ];
 ```
 
 #### 3. Third, create an empty matrix
 
 ``` javascript
-  var matrix = new Matrix();
+  var matrix = new QRD.Matrix();
 ```
 
 #### 4. Fourth, load points onto the matrix
