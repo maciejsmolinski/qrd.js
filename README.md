@@ -21,7 +21,7 @@
 
 ### Setup
 
-First, set up points
+#### 1. First, set up points
 
 ``` javascript
   var points = [
@@ -34,7 +34,7 @@ First, set up points
   ];
 ```
 
-Second, set up relations between points
+#### 2. Second, set up relations between points
 
 ``` javascript
   var relations = [
@@ -47,19 +47,19 @@ Second, set up relations between points
   ];
 ```
 
-Third, create an empty matrix
+#### 3. Third, create an empty matrix
 
 ``` javascript
   var matrix = new Matrix();
 ```
 
-Fourth, load points onto the matrix
+#### 4. Fourth, load points onto the matrix
 
 ``` javascript
   matrix.addPoints(points);
 ```
 
-Fifth, load relations onto the matrix
+#### 5. Fifth, load relations onto the matrix
 
 ``` javascript
   matrix.addRelations(relations);
