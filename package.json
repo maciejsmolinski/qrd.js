@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/msblaze/quickroad/issues"
   },
-  "homepage": "https://github.com/msblaze/quickroad"
+  "homepage": "https://github.com/msblaze/quickroad",
+  "devDependencies": {
+    "chai": "^1.10.0"
+  }
 }
