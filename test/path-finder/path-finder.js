@@ -52,28 +52,21 @@ describe('PathFinder', function () {
 
   describe('::methods', function () {
 
-    var matrixInstance = Object.create({ constructor: function Matrix(){}, points: [{}, {}] });
+    var pointInstance1 = Object.create({ constructor: function Point(){} });
+    var pointInstance2 = Object.create({ constructor: function Point(){} });
+    var matrixInstance = Object.create({ constructor: function Matrix(){}, points: [pointInstance1, pointInstance2] });
     var instance       = new subject(matrixInstance);
 
     describe('::findShortestPath', function () {
 
-      it('should accept "first" and "last" arguments', function () {
-        // @todo spy to see if first and last elements have been accessed
+      it('should mark start and end points corresponding to params provided', function () {
+        // @todo spy to see if __findPoint and set(Start|End)Points methods have been called
+
+      });
+
+      it('should return a collection of points that create the shortest route between start and end points', function () {
+        // @todo check if all elements are of Point type
         expect(instance.findShortestPath('first', 'last')).to.be.an('array');
-      });
-
-      it('should accept points as params', function () {
-        // @todo spy to see if first and second elements have been accessed
-        expect(instance.findShortestPath(instance.points[0], instance.points[1])).to.be.an('array');
-      });
-
-      it('should accept element indexes', function () {
-        // @todo spy to see if first and second elements have been accessed
-        expect(instance.findShortestPath(0, 1)).to.be.an('array');
-      });
-
-      it('should return an array of points that form shortest path together', function () {
-        expect(instance.findShortestPath(0, 1)).to.be.an('array');
       });
 
     });
@@ -94,6 +87,31 @@ describe('PathFinder', function () {
         expect(instance.endPoint).to.equal(undefined);
         instance.setEndPoint(0);
         expect(instance.endPoint).not.to.equal(undefined);
+      });
+
+    });
+
+    describe('::__findPoint', function () {
+
+      it('should allow only "first", "last", element index and Point instance as an option', function () {
+        [ 'first', 'last', 0, 1, instance.points[0] ].forEach(function (knownOption) {
+          expect(function () { instance.__findPoint(knownOption); }).not.to.throw(Error);
+        });
+      });
+
+      it('should throw an error if unknown option is used', function () {
+        [ {}. undefined, null, [] ].forEach(function (unknownOption) {
+          expect(function () { instance.__findPoint(unknownOption); }).to.throw(Error);
+        });
+      });
+
+      it('should return corresponding point if found', function () {
+        expect(instance.__findPoint(0)).to.equal(instance.points[0]);
+        expect(instance.__findPoint(1)).to.equal(instance.points[1]);
+        expect(instance.__findPoint('first')).to.equal(instance.points[0]);
+        expect(instance.__findPoint('last')).to.equal(instance.points[1]);
+        expect(instance.__findPoint(instance.points[0])).to.equal(instance.points[0]);
+        expect(instance.__findPoint(instance.points[1])).to.equal(instance.points[1]);
       });
 
     });
