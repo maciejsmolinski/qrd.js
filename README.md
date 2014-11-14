@@ -84,6 +84,7 @@ Now, the matrix contains both points and relations. You can imagine this as dots
 
 ``` javascript
   var pathFinder = new QRD.PathFinder(matrix);
+```
 
 #### 2. Find the shortest path
 
