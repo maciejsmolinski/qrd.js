@@ -52,7 +52,7 @@ describe('PathFinder', function () {
 
   describe('::methods', function () {
 
-    var matrixInstance = Object.create({ constructor: function Matrix(){}, points: [] });
+    var matrixInstance = Object.create({ constructor: function Matrix(){}, points: [{}, {}] });
     var instance       = new subject(matrixInstance);
 
     describe('::findShortestPath', function () {
