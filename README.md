@@ -1,4 +1,4 @@
-# Quickroad.js
+# QRD.js (Quickroad.js)
 
 ## Purpose
 
@@ -19,13 +19,19 @@
 HTML:
 
 ``` html
-  <script src="quickroad.js"></script>
+  <script src="qrd.js"></script>
 ```
 
-NodeJS:
+NodeJS (install package):
+
+``` bash
+  npm install qrd
+```
+
+NodeJS (include in your code):
 
 ``` javascript
-  var QRD = require('quickroad');
+  var QRD = require('qrd');
 ```
 
 ## Usage

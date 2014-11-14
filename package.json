@@ -1,8 +1,8 @@
 {
-  "name": "quickroad.js",
+  "name": "qrd.js",
   "version": "0.1.0",
   "description": "Finds the shortest path between points in a matrix",
-  "main": "quickroad.js",
+  "main": "qrd.js",
   "directories": {
     "test": "test"
   },
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/msblaze/quickroad.git"
+    "url": "https://github.com/maciejsmolinski/qrd.git"
   },
   "keywords": [
     "shortest",
@@ -22,9 +22,9 @@
   "author": "Maciej Smolinski",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/msblaze/quickroad/issues"
+    "url": "https://github.com/maciejsmolinski/qrd/issues"
   },
-  "homepage": "https://github.com/msblaze/quickroad",
+  "homepage": "https://github.com/maciejsmolinski/qrd",
   "devDependencies": {
     "chai": "^1.10.0"
   }

@@ -1,4 +1,4 @@
-var QR = require('./lib/quickroad');
+var QR = require('./lib/qrd');
 
 var points = [
   new QR.Point(0,0),
