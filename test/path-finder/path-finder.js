@@ -1,4 +1,4 @@
-var expect = require('chai').expect;
+var expect  = require('chai').expect;
 var subject = require('../../lib/path-finder/path-finder');
 
 describe('PathFinder', function () {
@@ -16,7 +16,7 @@ describe('PathFinder', function () {
     var matrixInstance = Object.create({ constructor: function Matrix(){} });
     var testInstance   = Object.create({ constructor: function Test(){} });
 
-    it('should be provided with matrix instance', function () {
+    it('should be provided with Matrix instance', function () {
       expect(function () { return new subject(); } ).to.throw(Error);
       expect(function () { return new subject(testInstance); }).to.throw(Error);
       expect(function () { return new subject(matrixInstance); }).not.to.throw(Error);
@@ -25,7 +25,14 @@ describe('PathFinder', function () {
   });
 
   describe('::instance', function () {
-    // to be implemented
+
+    var matrixInstance = Object.create({ constructor: function Matrix(){} });
+    var instance       = new subject(matrixInstance);
+
+    it('should hold matrix instance so that calculations can be performed on it', function () {
+      expect(instance.matrix).to.be.an('object');
+    });
+
   });
 
   describe('::methods', function () {
