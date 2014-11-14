@@ -145,7 +145,7 @@ You're done! You've received the collection of points that form the shortest pat
 
 ### Where and how can you use the library?
 
-* You can easily use this library to calculate the closest element to focus when navigating your website (point <-- relation.cost --> point)
+* You can easily use this library to calculate the closest element to focus when navigating your website with keyboard/arrows (point <-- relation.cost --> point)
 * You can easily calculate the shortest route to take (e.g. on a map)
 * You can also extend the library to support elements in 3D space if needed
 
