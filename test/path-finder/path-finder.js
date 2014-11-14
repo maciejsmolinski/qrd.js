@@ -61,7 +61,7 @@ describe('PathFinder', function () {
 
       it('should mark start and end points corresponding to params provided', function () {
         // @todo spy to see if __findPoint and set(Start|End)Points methods have been called
-
+        expect(true).to.equal(false); // make sure this test fails even if it's not implemented fully
       });
 
       it('should return a collection of points that create the shortest route between start and end points', function () {
