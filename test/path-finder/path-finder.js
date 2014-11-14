@@ -35,8 +35,49 @@ describe('PathFinder', function () {
 
   });
 
+  describe('::properties', function () {
+
+    var matrixInstance = Object.create({ constructor: function Matrix(){}, points: [] });
+    var instance       = new subject(matrixInstance);
+
+    describe('@points', function () {
+
+      it('should return points from the matrix', function () {
+        expect(instance.points).to.equal(instance.matrix.points);
+      });
+
+    });
+
+  });
+
   describe('::methods', function () {
-    // to be implemented
+
+    var matrixInstance = Object.create({ constructor: function Matrix(){}, points: [] });
+    var instance       = new subject(matrixInstance);
+
+    describe('::findShortestPath', function () {
+
+      it('should accept "first" and "last" arguments', function () {
+        // @todo spy to see if first and last elements have been accessed
+        expect(instance.findShortestPath('first', 'last')).to.be.an('array');
+      });
+
+      it('should accept points as params', function () {
+        // @todo spy to see if first and second elements have been accessed
+        expect(instance.findShortestPath(instance.points[0], instance.points[1])).to.be.an('array');
+      });
+
+      it('should accept element indexes', function () {
+        // @todo spy to see if first and second elements have been accessed
+        expect(instance.findShortestPath(0, 1)).to.be.an('array');
+      });
+
+      it('should return an array of points that form shortest path together', function () {
+        expect(instance.findShortestPath(0, 1)).to.be.an('array');
+      });
+
+    });
+
   });
 
 });
