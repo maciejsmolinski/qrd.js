@@ -91,19 +91,22 @@ Now, the matrix contains both points and relations. You can imagine this as dots
 You can reference points array directly
 
 ``` javascript
-  pathFinder.findShortestPath(pathFinder.points[0], pathFinder.points[4]); // => [ point, point, point ]
+  pathFinder.findShortestPath(pathFinder.points[0], pathFinder.points[4]);
+  // => [ point, point, point ]
 ```
 
 Or you can use shortcut method if you know exact element indexes 
 
 ``` javascript
-  pathFinder.findShortestPath(0, 4); // => [ point, point, point ]
+  pathFinder.findShortestPath(0, 4);
+  // => [ point, point, point ]
 ```
 
 For simplicity purposes you can use 'first' and 'last' words to reference first and last point from the array
 
 ``` javascript
-  pathFinder.findShortestPath('first', 'last'); // => [ point, point, point ]
+  pathFinder.findShortestPath('first', 'last');
+  // => [ point, point, point ]
 ```
 
 You're done! You've received the collection of points that form the shortest path between start and end points
