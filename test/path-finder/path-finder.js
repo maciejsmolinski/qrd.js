@@ -78,6 +78,26 @@ describe('PathFinder', function () {
 
     });
 
+    describe('::setStartPoint', function () {
+
+      it('should mark selected point as start point', function () {
+        expect(instance.startPoint).to.equal(undefined);
+        instance.setStartPoint(0);
+        expect(instance.startPoint).not.to.equal(undefined);
+      });
+
+    });
+
+    describe('::setEndPoint', function () {
+
+      it('should mark selected point as end point', function () {
+        expect(instance.endPoint).to.equal(undefined);
+        instance.setEndPoint(0);
+        expect(instance.endPoint).not.to.equal(undefined);
+      });
+
+    });
+
   });
 
 });
