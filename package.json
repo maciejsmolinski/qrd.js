@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "preinstall": "(which grunt > /dev/null || sudo npm install -g grunt-cli); (which mocha > /dev/null || sudo npm install -g mocha);"
   },
   "repository": {
     "type": "git",
