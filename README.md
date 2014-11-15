@@ -1,6 +1,6 @@
 # QRD.js (Quickroad.js)
 
-Build Status (Master Branch): [![Build Status](https://travis-ci.org/maciejsmolinski/qrd.js.svg?branch=master)]
+Build Status: [![Build Status](https://travis-ci.org/maciejsmolinski/qrd.js.svg?branch=master)](https://travis-ci.org/maciejsmolinski/qrd.js) [master]
 
 ## Purpose
 
