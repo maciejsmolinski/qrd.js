@@ -10,8 +10,6 @@
 
 * Use browserify to provide browser-friendly version of the library
 * Automate workflow with grunt/gulp
-* Provide easy to use API for finding shortest path
-* Bump versions whenever applicable
 * Make sure relation.cost returns a float number
 
 ## Installation
