@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/maciejsmolinski/qrd",
   "devDependencies": {
-    "chai": "^1.10.0"
+    "chai": "^1.10.0",
+    "sinon": "^1.11.1"
   }
 }
