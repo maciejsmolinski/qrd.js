@@ -1,4 +1,5 @@
-var expect = require('chai').expect;
+var sinon   = require('sinon');
+var expect  = require('chai').expect;
 var subject = require('../../lib/matrix/matrix');
 
 describe('Matrix', function () {
@@ -33,9 +34,15 @@ describe('Matrix', function () {
 
   describe('::methods', function () {
 
-    var instance = new subject();
-    var point    = Object.create({ constructor: function Point () {} });
-    var relation = Object.create({ constructor: function Relation () {} });
+    var instance;
+    var point;
+    var relation;
+
+    beforeEach(function () {
+      instance = new subject();
+      point    = Object.create({ constructor: function Point () {} });
+      relation = Object.create({ constructor: function Relation () {} });
+    });
 
 
     it('::addPoint should add point to the @points property', function () {

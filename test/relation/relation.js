@@ -1,4 +1,5 @@
-var expect = require('chai').expect;
+var sinon   = require('sinon');
+var expect  = require('chai').expect;
 var subject = require('../../lib/relation/relation');
 
 describe('Relation', function () {

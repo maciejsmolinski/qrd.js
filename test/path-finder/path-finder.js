@@ -1,3 +1,4 @@
+var sinon   = require('sinon');
 var expect  = require('chai').expect;
 var subject = require('../../lib/path-finder/path-finder');
 
@@ -82,13 +83,21 @@ describe('PathFinder', function () {
     describe('::findShortestPath', function () {
 
       it('should mark start and end points corresponding to params provided', function () {
-        // @todo spy to see if __findPoint and set(Start|End)Points methods have been called
-        expect(true).to.equal(false); // make sure this test fails even if it's not implemented fully
+        ['setStartPoint', 'setEndPoint', '__markGraphCostsAndRoutes', '__getShortestPath'].forEach(function (property) {
+          instance[property] = sinon.spy();
+        });
+
+        instance.findShortestPath('first', 'last');
+
+        expect(instance.setStartPoint.calledWith('first')).to.equal(true);
+        expect(instance.setEndPoint.calledWith('last')).to.equal(true);
       });
 
-      it('should return a collection of points that create the shortest route between start and end points', function () {
-        // @todo check if all elements are of Point type
-        expect(instance.findShortestPath('first', 'last')).to.be.an('array');
+      it('should return a collection of Points that create the shortest route between marked start and end points', function () {
+        var results = instance.findShortestPath('first', 'last');
+
+        expect(results).to.be.an('array');
+        expect(results.every(function(result) { return result.constructor.name === 'Point'; })).to.equal(true);
       });
 
     });
