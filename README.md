@@ -1,5 +1,7 @@
 # QRD.js (Quickroad.js)
 
+Build Status (Master Branch): [![Build Status](https://travis-ci.org/maciejsmolinski/qrd.js.svg?branch=master)]
+
 ## Purpose
 
 * Allows you to define Points and Relations between points and put them in the matrix
