@@ -91,6 +91,12 @@ NodeJS (include in your code):
 
 Now, the matrix contains both points and relations. You can imagine this as dots on a matrix connected with straight lines (source -> target)
 
+You could simply avoid using `addPoints` and `addRelations` methods by providing points and relations in Matrix constructor directly:
+
+``` javascript
+  var matrix = new QRD.Matrix({ points: points, relations: relations });
+```
+
 ### Perform calculations
 
 #### 1. Create an instance of PathFinder

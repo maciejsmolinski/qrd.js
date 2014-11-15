@@ -1,6 +1,6 @@
 {
   "name": "qrd.js",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "description": "Finds the shortest path between points in a matrix",
   "main": "lib/qrd.js",
   "directories": {

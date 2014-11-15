@@ -19,13 +19,8 @@ var relations = [
   new QRD.Relation(points[4], points[5])
 ];
 
-var matrix = new QRD.Matrix();
-
-matrix.addPoints(points);
-matrix.addRelations(relations);
-
+var matrix = new QRD.Matrix({ points: points, relations: relations });
 console.log('::Matrix', matrix);
 
 var pathFinder = new QRD.PathFinder(matrix);
-
 console.log('::PathFinder', pathFinder.findShortestPath('first', 'last'));
