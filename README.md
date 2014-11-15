@@ -11,6 +11,7 @@
 * Use browserify to provide browser-friendly version of the library
 * Automate workflow with grunt/gulp
 * Make sure relation.cost returns a float number
+* Add code documentation wherever applicable
 
 ## Installation
 
