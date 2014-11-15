@@ -13,8 +13,13 @@ describe('PathFinder', function () {
 
   describe('::constructor', function () {
 
-    var matrixInstance = Object.create({ constructor: function Matrix(){} });
-    var testInstance   = Object.create({ constructor: function Test(){} });
+    var matrixInstance;
+    var testInstance;
+
+    beforeEach(function () {
+      matrixInstance = Object.create({ constructor: function Matrix(){} });
+      testInstance   = Object.create({ constructor: function Test(){} });
+    });
 
     it('should be provided with Matrix instance', function () {
       expect(function () { return new subject(); } ).to.throw(Error);
@@ -26,8 +31,13 @@ describe('PathFinder', function () {
 
   describe('::instance', function () {
 
-    var matrixInstance = Object.create({ constructor: function Matrix(){} });
-    var instance       = new subject(matrixInstance);
+    var matrixInstance;
+    var testInstance;
+
+    beforeEach(function () {
+      matrixInstance = Object.create({ constructor: function Matrix(){} });
+      instance       = new subject(matrixInstance);
+    });
 
     it('should hold matrix instance so that calculations can be performed on it', function () {
       expect(instance.matrix).to.be.an('object');
@@ -37,8 +47,13 @@ describe('PathFinder', function () {
 
   describe('::properties', function () {
 
-    var matrixInstance = Object.create({ constructor: function Matrix(){}, points: [] });
-    var instance       = new subject(matrixInstance);
+    var matrixInstance;
+    var instance;
+
+    beforeEach(function () {
+      matrixInstance = Object.create({ constructor: function Matrix(){}, points: [] });
+      instance       = new subject(matrixInstance);
+    });
 
     describe('@points', function () {
 
@@ -52,10 +67,17 @@ describe('PathFinder', function () {
 
   describe('::methods', function () {
 
-    var pointInstance1 = Object.create({ constructor: function Point(){} });
-    var pointInstance2 = Object.create({ constructor: function Point(){} });
-    var matrixInstance = Object.create({ constructor: function Matrix(){}, points: [pointInstance1, pointInstance2] });
-    var instance       = new subject(matrixInstance);
+    var pointInstance1;
+    var pointInstance2;
+    var matrixInstance;
+    var instance;
+
+    beforeEach(function () {
+      pointInstance1 = Object.create({ constructor: function Point(){} });
+      pointInstance2 = Object.create({ constructor: function Point(){} });
+      matrixInstance = Object.create({ constructor: function Matrix(){}, points: [pointInstance1, pointInstance2] });
+      instance       = new subject(matrixInstance);
+    });
 
     describe('::findShortestPath', function () {
 
