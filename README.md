@@ -15,6 +15,7 @@ Build Status: [![Build Status](https://travis-ci.org/maciejsmolinski/qrd.js.svg?
 * Make sure relation.cost returns a float number
 * Add code documentation wherever applicable
 * Do not modify original point objects while using path finder. Use value objects
+* Prepare functional tests so that even if unit tests work, the results of program running return values that are expected
 
 ## Installation
 
