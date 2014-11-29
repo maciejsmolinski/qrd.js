@@ -151,14 +151,9 @@ You're done! You've received the collection of points that form the shortest pat
     new QRD.Relation(points[4], points[5])
   ];
 
-  var matrix = new QRD.Matrix();
+  var matrix = new QRD.Matrix({ points: points, relations: relations });
 
-  matrix.addPoints(points);
-  matrix.addRelations(relations);
-
-  var pathFinder = new QRD.PathFinder(matrix);
-
-  pathFinder.findShortestPath('first', 'last');
+  new QRD.PathFinder(matrix).findShortestPath('first', 'last');
   // => [ point, point, ..., point ]
 ```
 
