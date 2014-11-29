@@ -163,6 +163,11 @@ You're done! You've received the collection of points that form the shortest pat
 * You can easily calculate the shortest route to take (e.g. on a map)
 * You can also extend the library to support elements in 3D space if needed
 
+## Tests Suite
+
+* In order to run the tests suite, simply type `mocha` in your console
+* [mocha.js](http://mochajs.org/) must be globally installed
+
 ## Contributing
 Feel free to contribute or contact me at contact@maciejsmolinski.com with any questions
 
